@@ -24,11 +24,11 @@ public class World {
         camera = new OrthographicCamera();
     }
 
-    public void addChunks(Chunks chunk){
-        map.add(chunk);
+    public void addMap(ArrayList<Chunks> map){
+        this.map = map;
     }
 
-    public ArrayList<Chunks> getChunks(){
+    public ArrayList<Chunks> getMap(){
         return map;
     }
 

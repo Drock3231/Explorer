@@ -18,9 +18,19 @@ public class ScreenGame extends ScreenBase {
     public ScreenGame(Game game){
 
         world = new World();
+        worldController = new WorldController(world);
+        worldRenderer= new WorldRenderer(world);
 
 
+    }
 
+    @Override
+    public void render(float delta){
+
+        if(delta < 0.05f){
+            worldController.update(delta);
+            worldRenderer.update();
+        }
     }
 
 }

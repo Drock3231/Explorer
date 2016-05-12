@@ -7,10 +7,19 @@ import com.detell.explorer.Models.World;
  */
 public class WorldController {
 
+    private World world;
+
     public WorldController(World world){
+        this.world = world;
 
+        createMap();
+    }
 
+    public void update(float delta){
 
     }
 
+    private void createMap(){
+        world.addMap(chunkController.generateMap());
+    }
 }
