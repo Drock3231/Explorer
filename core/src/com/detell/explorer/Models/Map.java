@@ -24,5 +24,9 @@ public class Map {
         chunks[x][y] = new Chunks(blocks);
     }
     
+    public Chunks[][] getChunks(){
+        return chunks;
+    }
+    
     public Vector2 getMapSize(){ return SIZE;}
 }

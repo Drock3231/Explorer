@@ -5,19 +5,17 @@ import com.badlogic.gdx.graphics.Texture;
 /**
  * Created by Derick on 5/12/2016.
  */
-public class BlockSand extends Block {
+public class BlockRock extends Block {
 
-    protected static Texture texture = new Texture("data/sand.png");
-    public static int ID = 0;
+    protected static Texture texture = new Texture("data/rock.png");
+    public static int ID = 1;
 
-    public BlockSand(int x, int y){
+    public BlockRock(int x, int y) {
         super(x, y);
-        isSolid = false;
     }
 
     @Override
     public Texture getTexture(){
         return texture;
     }
-
 }

@@ -31,7 +31,7 @@ public class ScreenGame extends ScreenBase {
 
         if(delta < 0.05f){
             worldController.update(delta);
-            worldRenderer.update();
+            worldRenderer.render();
         }
     }
 

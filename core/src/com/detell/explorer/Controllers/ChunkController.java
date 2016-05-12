@@ -3,7 +3,9 @@ package com.detell.explorer.Controllers;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.detell.explorer.Models.Blocks.Block;
+import com.detell.explorer.Models.Blocks.BlockRock;
 import com.detell.explorer.Models.Blocks.BlockSand;
+import com.detell.explorer.Models.Chunks;
 import com.detell.explorer.Models.Map;
 
 /**
@@ -29,15 +31,15 @@ public class ChunkController {
 
                 Block[][] blocks = new Block[Math.round(Block.getSize().x)][Math.round(Block.getSize().y)];
 
-                fileName = ("data/chunk" + (a+b) + ".txt");
+                fileName = ("assets/chunk" + (a+b) + ".txt");
 
                 handle = Gdx.files.internal(fileName);
                 text = handle.readString();
                 stringIndex = 0;
 
                 //adds blocks to chunk
-                for(int x = 0; x < Block.getSize().x; x++){
-                    for(int y = 0; y < Block.getSize().y; y++){
+                for(int x = 0; x < Chunks.getSize().x; x++){
+                    for(int y = 0; y < Chunks.getSize().y; y++){
 
                         char charAt = text.charAt(stringIndex);
                         switch(charAt){
@@ -50,18 +52,18 @@ public class ChunkController {
                                     break;
 
                             case 3: charAt = '0';
-                                    blocks[x][y] = new BlockSand(x,y);
+                                    blocks[x][y] = new BlockSand(Math.round(x + Chunks.getSize().x * a), Math.round(y + Chunks.getSize().y * b));
                                     stringIndex++;
                                     break;
 
                             case 4: charAt = '1';
-                                    blocks[x][y] = new BlockSand(x,y);
+                                    blocks[x][y] = new BlockRock(Math.round(x + Chunks.getSize().x * a), Math.round(y + Chunks.getSize().y * b));
                                     stringIndex++;
                                     break;
 
                         }
 
-                        map.addChunks(blocks, x, y);
+                        map.addChunks(blocks, a, b);
 
 
                     }

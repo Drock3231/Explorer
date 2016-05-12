@@ -41,4 +41,12 @@ public class World {
         return player;
     }
 
+    public Vector2 getViewport(){
+        return VIEWPORT;
+    }
+
+    public OrthographicCamera getCamera(){
+        return camera;
+    }
+
 }
