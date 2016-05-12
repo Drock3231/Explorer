@@ -7,28 +7,33 @@ import java.util.ArrayList;
 
 /**
  * Created by Derick on 5/10/2016.
+ *
+ * Class that contains all the game-world variables
  */
 public class World {
 
-    private ArrayList<Chunks> map;
-
+    //game map
+    private Map map;
+    //player
     private Player player;
-
+    //camera variables
     private OrthographicCamera camera;
     private final static Vector2 VIEWPORT = new Vector2(20,12);
 
+    //initialize variables
     public World(){
 
-        map = new ArrayList<>();
+        map = new Map();
 
         camera = new OrthographicCamera();
     }
 
-    public void addMap(ArrayList<Chunks> map){
+    //methods to set/get variables
+    public void addMap(Map map){
         this.map = map;
     }
 
-    public ArrayList<Chunks> getMap(){
+    public Map getMap(){
         return map;
     }
 

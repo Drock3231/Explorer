@@ -10,11 +10,12 @@ import com.detell.explorer.Views.WorldRenderer;
  * Created by Derick on 5/10/2016.
  */
 public class ScreenGame extends ScreenBase {
-
+    //world variables
     private World world;
     private WorldController worldController;
     private WorldRenderer worldRenderer;
 
+    //initializing world variables
     public ScreenGame(Game game){
 
         world = new World();
@@ -24,6 +25,7 @@ public class ScreenGame extends ScreenBase {
 
     }
 
+    //rendering world variables
     @Override
     public void render(float delta){
 

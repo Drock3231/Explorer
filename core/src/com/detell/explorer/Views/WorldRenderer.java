@@ -4,6 +4,8 @@ import com.detell.explorer.Models.World;
 
 /**
  * Created by Derick on 5/11/2016.
+ *
+ * Class that renders game-world variables
  */
 public class WorldRenderer {
 

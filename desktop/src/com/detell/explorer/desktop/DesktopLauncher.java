@@ -7,6 +7,10 @@ import com.detell.explorer.ExplorerGame;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		config.title = "Explorer";
+		config.width = 1280;
+		config.height = 768;
+
 		new LwjglApplication(new ExplorerGame(), config);
 	}
 }
