@@ -29,9 +29,9 @@ public class ChunkController {
         for(int a = 0; a < map.getMapSize().x; a++){
             for(int b = 0; b < map.getMapSize().y; b++){
 
-                Block[][] blocks = new Block[Math.round(Block.getSize().x)][Math.round(Block.getSize().y)];
+                Block[][] blocks = new Block[Math.round(Chunks.getSize().x)][Math.round(Chunks.getSize().y)];
 
-                fileName = ("assets/chunk" + (a+b) + ".txt");
+                fileName = ("chunk" + (a+b) + ".txt");
 
                 handle = Gdx.files.internal(fileName);
                 text = handle.readString();
@@ -41,33 +41,32 @@ public class ChunkController {
                 for(int x = 0; x < Chunks.getSize().x; x++){
                     for(int y = 0; y < Chunks.getSize().y; y++){
 
+                        if(text.charAt(stringIndex) == '\r') stringIndex++;
+                        if(text.charAt(stringIndex) == '\n') stringIndex++;
+
                         char charAt = text.charAt(stringIndex);
+
                         switch(charAt){
-                            case 1: charAt = '\r';
-                                    stringIndex++;
-                                    break;
+                            case '0': blocks[x][y] = new BlockSand(Math.round(x + Chunks.getSize().x * a), Math.round(y + Chunks.getSize().y * b));
+                                      stringIndex++;
+                                      break;
 
-                            case 2: charAt = '\n';
-                                    stringIndex++;
-                                    break;
-
-                            case 3: charAt = '0';
-                                    blocks[x][y] = new BlockSand(Math.round(x + Chunks.getSize().x * a), Math.round(y + Chunks.getSize().y * b));
-                                    stringIndex++;
-                                    break;
-
-                            case 4: charAt = '1';
-                                    blocks[x][y] = new BlockRock(Math.round(x + Chunks.getSize().x * a), Math.round(y + Chunks.getSize().y * b));
-                                    stringIndex++;
-                                    break;
+                            case '1': blocks[x][y] = new BlockRock(Math.round(x + Chunks.getSize().x * a), Math.round(y + Chunks.getSize().y * b));
+                                      stringIndex++;
+                                      break;
+                            case '2': blocks[x][y] = new BlockRock(Math.round(x + Chunks.getSize().x * a), Math.round(y + Chunks.getSize().y * b));
+                                      stringIndex++;
+                                      break;
 
                         }
 
-                        map.addChunks(blocks, a, b);
+
 
 
                     }
                 }
+
+                map.addChunks(blocks, a, b);
 
             }
         }

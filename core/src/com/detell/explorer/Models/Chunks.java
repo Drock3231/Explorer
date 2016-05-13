@@ -10,7 +10,7 @@ public class Chunks {
 
     private static final int SIZE_X = 30;
     private static final int SIZE_Y = 30;
-    protected static final Vector2 SIZE = new Vector2(1,1);
+    protected static final Vector2 SIZE = new Vector2(SIZE_X,SIZE_Y);
 
     private Block[][] blocks = new Block[SIZE_X][SIZE_Y];
 
