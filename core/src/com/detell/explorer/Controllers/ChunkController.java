@@ -31,7 +31,7 @@ public class ChunkController {
 
                 Block[][] blocks = new Block[Math.round(Chunks.getSize().x)][Math.round(Chunks.getSize().y)];
 
-                fileName = ("chunk" + (a+b) + ".txt");
+                fileName = ("map/chunk" + (a+b) + ".txt");
 
                 handle = Gdx.files.internal(fileName);
                 text = handle.readString();
