@@ -5,7 +5,7 @@ import com.badlogic.gdx.Screen;
 /**
  * Created by Derick on 5/10/2016.
  */
-public class ScreenBase implements Screen {
+public abstract class ScreenBase implements Screen {
     @Override
     public void show() {
 
