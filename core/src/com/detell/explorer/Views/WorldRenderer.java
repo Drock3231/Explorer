@@ -64,7 +64,7 @@ public class WorldRenderer {
                 for (int x = 0; x < chunk.getBlocks().length; x++) {
                     for (int y = 0; y < chunk.getBlocks().length; y++) {
                         Block block = chunk.getBlocks()[x][y];
-                        if (!(0 + viewPort.x < block.getPosition().x) && !(0 - viewPort.x > block.getPosition().x)) {
+                        if (!(player.getPosition().x + viewPort.x < block.getPosition().x) && !(player.getPosition().x - viewPort.x > block.getPosition().x)) {
                             spriteBatch.draw(block.getTexture(), block.getPosition().x, block.getPosition().y, block.getSize().x, block.getSize().y);
                         }
                     }
