@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
  */
 public class BlockRock extends Block {
 
-    protected static Texture texture = new Texture("rock.png");
+    protected static Texture texture = new Texture("tiles/rock.png");
     public static int ID = 1;
 
     public BlockRock(int x, int y) {
