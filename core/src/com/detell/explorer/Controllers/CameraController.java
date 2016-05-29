@@ -6,6 +6,7 @@ import com.detell.explorer.Models.World;
 
 /**
  * Created by Derick on 5/17/2016.
+ * Class that initializes the camera and updates its position based on the player's position
  */
 public class CameraController {
 

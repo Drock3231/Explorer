@@ -3,14 +3,13 @@ package com.detell.explorer.Views;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.detell.explorer.Models.Blocks.Block;
 import com.detell.explorer.Models.Chunks;
 import com.detell.explorer.Models.Player;
 import com.detell.explorer.Models.World;
-
-import java.lang.reflect.Array;
 
 /**
  * Created by Derick on 5/11/2016.
@@ -26,12 +25,15 @@ public class WorldRenderer {
 
     private World world;
 
+    private Texture playerTexture = new Texture("player.png");
+
     public WorldRenderer(World world){
         spriteBatch = new SpriteBatch();
 
         camera = world.getCamera();
-        camera.setToOrtho(false, world.getViewport().x, world.getViewport().y);
         viewPort = new Vector2(world.getViewport());
+        camera.setToOrtho(false, viewPort.x,viewPort.y);
+
 
         this.world = world;
     }
@@ -45,9 +47,15 @@ public class WorldRenderer {
         spriteBatch.begin();
 
         renderWorld();
+        renderPlayer();
 
         spriteBatch.end();
 
+    }
+
+    private void renderPlayer(){
+        Player player = world.getPlayer();
+        spriteBatch.draw(playerTexture, player.getPosition().x, player.getPosition().y, player.getSize().x, player.getSize().y);
     }
 
     private void renderWorld(){

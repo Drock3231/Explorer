@@ -25,7 +25,7 @@ public class World {
 
         map = new Map();
 
-        player = new Player(0,0);
+        player = new Player(10,10);
 
         camera = new OrthographicCamera();
     }

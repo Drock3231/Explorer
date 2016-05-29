@@ -12,8 +12,10 @@ public class Player {
     private Vector2 acceleration;
     private Vector2 velocity;
 
+    private long hitstunTime = 0;
+
     private Rectangle bounds;
-    private static final Vector2 SIZE = new Vector2(1f,2f);
+    private static final Vector2 SIZE = new Vector2(1f,1f);
 
     public Player(int x, int y){
 
@@ -21,7 +23,7 @@ public class Player {
         acceleration = new Vector2();
         velocity = new Vector2();
 
-        bounds = new Rectangle(x,y,SIZE.x,SIZE.y);
+        bounds = new Rectangle(this.position.x,this.position.y,SIZE.x,SIZE.y);
     }
 
     public Vector2 getPosition(){
@@ -34,6 +36,14 @@ public class Player {
 
     public Vector2 getVelocity(){
         return velocity;
+    }
+
+    public long getHitstunTime(){
+        return hitstunTime;
+    }
+
+    public void setHitstunTime(long hitstunTime){
+        this.hitstunTime = hitstunTime;
     }
 
     public Vector2 getSize(){

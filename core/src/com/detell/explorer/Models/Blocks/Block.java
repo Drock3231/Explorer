@@ -12,7 +12,9 @@ public class Block {
     private Rectangle bounds;
     private Vector2 position;
     protected static final Vector2 SIZE = new Vector2(1,1);
+
     protected boolean isSolid = true;
+    private static final long HITSTUN = 100L;
 
     protected static Texture texture;
     public static int ID = 1;
@@ -36,6 +38,10 @@ public class Block {
 
     public boolean isSolid(){
         return isSolid;
+    }
+
+    public static long getHITSTUN(){
+        return HITSTUN;
     }
 
     public Texture getTexture(){
