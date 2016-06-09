@@ -21,11 +21,11 @@ public class PlayerController {
     private World world;
 
     //Creation and storage of keys that the player uses to interact with the world
-    public enum Keys{
+    private enum Keys{
         Left,Right,Up,Down
     }
 
-    static Map<Keys,Boolean> keys = new HashMap<Keys, Boolean>();
+    private static Map<Keys,Boolean> keys = new HashMap<>();
     static{
         keys.put(Keys.Left,false);
         keys.put(Keys.Right,false);
@@ -41,8 +41,7 @@ public class PlayerController {
         }
     };
 
-    //this array holds the blocks that the player can collide with
-    private Array<Block> collidableBlocks = new Array<>();
+
 
     //These are all the values the game uses to calculate acceleration
     //given in real-world values in m/s (blocks/sec)
@@ -82,8 +81,6 @@ public class PlayerController {
         player.getBounds().x = player.getPosition().x;
         player.getBounds().y = player.getPosition().y;
         player.getVelocity().scl(1/delta);
-
-
     }
 
     private void checkBlockCollision(float delta){
@@ -100,6 +97,9 @@ public class PlayerController {
         int mapY = (int)Math.floor(player.getPosition().y/Chunks.getSize().y);
         Chunks playerChunk = world.getMap().getChunks()[mapX][mapY];
 
+        //this array holds the blocks that the player can collide with
+        Array<Block> collidableBlocks;
+
         /*find blocks that are near player (currently the 8 blocks player is near and the one
         he is in)
         */
@@ -114,6 +114,7 @@ public class PlayerController {
                 player.getVelocity().set(0,0);
                 player.getAcceleration().set(0,0);
                 player.setHitstunTime(System.currentTimeMillis());
+
             }
         }
 

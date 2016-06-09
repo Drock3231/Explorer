@@ -2,6 +2,7 @@ package com.detell.explorer.Models;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
+import com.detell.explorer.Models.Entities.Entity;
 
 import java.util.ArrayList;
 
@@ -14,6 +15,8 @@ public class World {
 
     //game map
     private Map map;
+    //
+    private EntityMap entityMap;
     //player
     private Player player;
     //camera variables
@@ -24,6 +27,7 @@ public class World {
     public World(){
 
         map = new Map();
+        entityMap = new EntityMap();
 
         player = new Player(10,10);
 
@@ -37,6 +41,14 @@ public class World {
 
     public Map getMap(){
         return map;
+    }
+
+    public void addEntityMap(EntityMap entityMap){
+        this.entityMap = entityMap;
+    }
+
+    public EntityMap getEntityMap(){
+        return entityMap;
     }
 
     public Player getPlayer(){

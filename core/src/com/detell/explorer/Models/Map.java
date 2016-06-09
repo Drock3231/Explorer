@@ -28,5 +28,5 @@ public class Map {
         return chunks;
     }
     
-    public Vector2 getMapSize(){ return SIZE;}
+    public static Vector2 getMapSize(){ return SIZE;}
 }

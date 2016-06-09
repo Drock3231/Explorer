@@ -13,6 +13,7 @@ public class WorldController {
 
     private CameraController cameraController;
     private ChunkController chunkController;
+    private EntityChunkController entityChunkController;
     private PlayerController playerController;
 
     public WorldController(World world){
@@ -20,9 +21,11 @@ public class WorldController {
 
         cameraController = new CameraController(world);
         chunkController = new ChunkController();
+        entityChunkController = new EntityChunkController();
         playerController = new PlayerController(world);
 
         createMap();
+        createEntityMap();
     }
 
     public void update(float delta){
@@ -32,6 +35,10 @@ public class WorldController {
 
     private void createMap(){
         world.addMap(chunkController.generateMap());
+    }
+
+    private void createEntityMap(){
+        world.addEntityMap(entityChunkController.generateEntityMap());
     }
 
     public PlayerController getPlayerController(){

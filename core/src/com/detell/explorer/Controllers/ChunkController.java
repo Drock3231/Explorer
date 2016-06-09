@@ -54,7 +54,7 @@ public class ChunkController {
                             case '1': blocks[x][y] = new BlockRock(Math.round(x + Chunks.getSize().x * a), Math.round(y + Chunks.getSize().y * b));
                                       stringIndex++;
                                       break;
-                            case '2': blocks[x][y] = new BlockRock(Math.round(x + Chunks.getSize().x * a), Math.round(y + Chunks.getSize().y * b));
+                            case '2': blocks[x][y] = new BlockSand(Math.round(x + Chunks.getSize().x * a), Math.round(y + Chunks.getSize().y * b));
                                       stringIndex++;
                                       break;
 

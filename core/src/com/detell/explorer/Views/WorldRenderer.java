@@ -8,6 +8,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.detell.explorer.Models.Blocks.Block;
 import com.detell.explorer.Models.Chunks;
+import com.detell.explorer.Models.Entities.Entity;
+import com.detell.explorer.Models.EntityChunk;
 import com.detell.explorer.Models.Player;
 import com.detell.explorer.Models.World;
 
@@ -47,6 +49,7 @@ public class WorldRenderer {
         spriteBatch.begin();
 
         renderWorld();
+        renderEntites();
         renderPlayer();
 
         spriteBatch.end();
@@ -56,6 +59,21 @@ public class WorldRenderer {
     private void renderPlayer(){
         Player player = world.getPlayer();
         spriteBatch.draw(playerTexture, player.getPosition().x, player.getPosition().y, player.getSize().x, player.getSize().y);
+    }
+
+    private void renderEntites(){
+        //acquire player object so that we can cull entities
+        Player player = world.getPlayer();
+
+        //finds player's entity chunk
+        int mapX = (int)Math.floor(player.getPosition().x/Chunks.getSize().x);
+        int mapY = (int)Math.floor(player.getPosition().y/Chunks.getSize().y);
+        EntityChunk playerEntityChunk = world.getEntityMap().getEntityChunks()[mapX][mapY];
+
+        for (Entity entity: playerEntityChunk.getEntities()){
+            spriteBatch.draw(entity.getTexture(), entity.getPosition().x, entity.getPosition().y, entity.getSize().x, entity.getSize().y);
+        }
+
     }
 
     private void renderWorld(){
